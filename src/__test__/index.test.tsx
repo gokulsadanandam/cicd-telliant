@@ -1,6 +1,6 @@
+import { CartProvider } from '@/context/CartContext';
+import Home from '@/pages';
 import { render, screen } from '@testing-library/react';
-import Home from '../index';
-import { CartProvider } from '../../context/CartContext';
 
 describe('Home', () => {
   it('renders the store title', () => {
