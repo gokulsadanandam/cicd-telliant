@@ -45,4 +45,4 @@ jobs:
 
       - name: Deploy
         if: github.ref == 'refs/heads/main'
-        run: echo "Deploying to production..."
+        run: yarn run vercel --prod --token ${{ secrets.VERCEL_TOKEN }}

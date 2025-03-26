@@ -10,7 +10,7 @@ const Cart: NextPage = () => {
   return (
     <div>
       <h1>Your Cart</h1>
-      <Link href="/">Back to Store</Link>
+      <Link href="/">Go Back to Store</Link>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
