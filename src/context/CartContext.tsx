@@ -1,12 +1,12 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 import { Product } from '../data/products';
 
-interface CartItem {
+export interface CartItem {
   product: Product;
   quantity: number;
 }
 
-interface CartContextType {
+export interface CartContextType {
   cart: CartItem[];
   addToCart: (product: Product) => void;
   removeFromCart: (id: number) => void;

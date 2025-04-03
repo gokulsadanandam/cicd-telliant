@@ -1,7 +1,7 @@
 import { render, act } from '@testing-library/react';
-import { CartProvider, useCart } from '../context/CartContext';
+import { CartContextType, CartItem, CartProvider, useCart } from '../context/CartContext';
 import { Product } from '../data/products';
-import { ReactNode } from 'react';
+import { Context, ReactNode } from 'react';
 
 // Mock product
 const mockProduct: Product = {
@@ -12,14 +12,14 @@ const mockProduct: Product = {
 };
 
 // Helper component to access cart context in tests
-const CartConsumer: React.FC<{ children: (context: any) => ReactNode }> = ({ children }) => {
+const CartConsumer: React.FC<{ children: (context: CartContextType) => ReactNode }> = ({ children }) => {
   const context = useCart();
   return <>{children(context)}</>;
 };
 
 describe('CartContext', () => {
   it('adds a product to the cart', () => {
-    let cart: any, addToCart: any;
+    let cart: CartItem[] = [], addToCart: (product: Product) => void;
     
     render(
       <CartProvider>
@@ -50,7 +50,7 @@ describe('CartContext', () => {
   });
 
   it('removes a product from the cart', () => {
-    let cart: any, addToCart: any, removeFromCart: any;
+    let cart: CartItem[] = [], addToCart: (product: Product) => void, removeFromCart: (id: number) => void;
 
     render(
       <CartProvider>
