@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import ProductCard from '../ProductCard';
+import { Product } from '../../data/products';
 
 const mockProduct = { id: 1, name: 'T-Shirt', price: 19.99, description: 'Comfy cotton tee' };
 const mockAddToCart = jest.fn();
@@ -9,6 +10,7 @@ describe('ProductCard', () => {
     render(<ProductCard product={mockProduct} addToCart={mockAddToCart} />);
     expect(screen.getByText('T-Shirt')).toBeInTheDocument();
     expect(screen.getByText('$19.99')).toBeInTheDocument();
+    expect(screen.getByText('Comfy cotton tee')).toBeInTheDocument();
   });
 
   it('calls addToCart on button click', () => {
