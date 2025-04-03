@@ -1,7 +1,7 @@
 import { render, act } from '@testing-library/react';
 import { CartContextType, CartItem, CartProvider, useCart } from '../context/CartContext';
 import { Product } from '../data/products';
-import { Context, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 // Mock product
 const mockProduct: Product = {
