@@ -49,5 +49,5 @@ jobs:
         continue-on-error: true
 
       - name: Deploy
-        if: github.ref == 'refs/heads/main'
+        # if: github.ref == 'refs/heads/main'
         run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes

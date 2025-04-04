@@ -3,20 +3,31 @@ import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import { useCart } from '../context/CartContext';
 import Link from 'next/link';
+import { Container, Row, Col, Navbar, Nav } from 'react-bootstrap';
 
 const Home: NextPage = () => {
   const { addToCart } = useCart();
 
   return (
-    <div>
-      <h1>E-commerce Store</h1>
-      <Link href="/cart">Go to Cart</Link>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} addToCart={addToCart} />
-        ))}
-      </div>
-    </div>
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand>E-commerce Store</Navbar.Brand>
+          <Nav>
+            <Nav.Link as={Link} href="/cart">Cart</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      <Container className="mt-4 mx-auto">
+        <Row>
+          {products.map(product => (
+            <Col key={product.id} sm={12} md={6} lg={3}>
+              <ProductCard product={product} addToCart={addToCart} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ describe('ProductCard', () => {
     render(<ProductCard product={mockProduct} addToCart={mockAddToCart} />);
     expect(screen.getByText('T-Shirt')).toBeInTheDocument();
     expect(screen.getByText('$19.99')).toBeInTheDocument();
+    expect(screen.getByText('Comfy cotton tee')).toBeInTheDocument();
   });
 
   it('calls addToCart on button click', () => {
